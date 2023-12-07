@@ -1,7 +1,5 @@
 import sqlite3
 
-# Connect to or create the database file (if it doesn't exist, it will be created)
-
 
 def create_db():
     conn = sqlite3.connect('oplata.sqlite')
@@ -13,6 +11,7 @@ def create_db():
                 );''')
     conn.commit()
     conn.close()
+
 
 # create_db()
 
@@ -40,6 +39,16 @@ def select_need_payments():
     conn = sqlite3.connect('oplata.sqlite')
     cursor = conn.cursor()
     cursor.execute('''SELECT * FROM need_payment;''')
+    need_payments = cursor.fetchall()
+    conn.commit()
+    conn.close()
+    return need_payments
+
+
+def update_is_paid(id: int):
+    conn = sqlite3.connect('oplata.sqlite')
+    cursor = conn.cursor()
+    cursor.execute(f'UPDATE need_payment SET is_paid = 1 WHERE id = {id};')
     need_payments = cursor.fetchall()
     conn.commit()
     conn.close()

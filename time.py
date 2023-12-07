@@ -1,6 +1,8 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import pytz
+
+from db import select_need_payments
 
 
 def timestamp_to_datetime(timestamp):
@@ -8,4 +10,3 @@ def timestamp_to_datetime(timestamp):
     return datetime.fromtimestamp(timestamp, tz=pytz.timezone('Asia/Tashkent'))
 
 
-print(timestamp_to_datetime(1694649600000))
