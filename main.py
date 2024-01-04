@@ -106,9 +106,9 @@ async def with_puree(message: types.Message):
     info_all = info()
     response = f"""
     <b>Жəми төлем:   {info_all[0]}</b>
-    <b>Жəми қарз:   {info_all[1]}</b>
-    <b>График бойынша төлениў керек:   {info_all[2]}</b>
-    <b>График бойынша қарз:   {info_all[3]}</b>
+<b>Жəми қарз:   {info_all[1]}</b>
+<b>График бойынша төлениў керек:   {info_all[2]}</b>
+<b>График бойынша қарз:   {info_all[3]}</b>
     """
 
     await message.reply(text=response, parse_mode=ParseMode.HTML)
