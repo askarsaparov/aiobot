@@ -91,7 +91,7 @@ async def with_puree(message: types.Message):
 @router.message(F.text == "Төлеўлер тарийхи")
 async def with_puree(message: types.Message):
     payments = get_all_payments()
-    response = "<b><u>Толеўлер тарийхи:</u></b>\n\n"
+    response = "<b><u>Толеўлер тарийхи:</u></b>\n"
     for payment in payments:
         response += f"<b>{payment[0]} - {payment[1]} - {payment[2]} </b> сум\n"
     await message.reply(text=response, parse_mode=ParseMode.HTML)
@@ -105,10 +105,10 @@ async def with_puree(message: types.Message):
     #     response += f"<b>{payment[0]} - {payment[1]} - {payment[2]} </b> сум\n"
     info_all = info()
     response = f"""
-<b>Жəми төлем:   {info_all[0]}</b>
-<b>Жəми қарз:   {info_all[1]}</b>
-<b>График бойынша төлениў керек:   {info_all[2]}</b>
-<b>График бойынша қарз:   {info_all[3]}</b>
+    <b>Жəми төлем:   {info_all[0]}</b>
+    <b>Жəми қарз:   {info_all[1]}</b>
+    <b>График бойынша төлениў керек:   {info_all[2]}</b>
+    <b>График бойынша қарз:   {info_all[3]}</b>
     """
 
     await message.reply(text=response, parse_mode=ParseMode.HTML)

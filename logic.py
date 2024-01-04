@@ -101,7 +101,10 @@ def get_graphic():
     day = 14
     graphic = datetime(year, month, day).date()
     if graphic > current_date:
-        graphic = graphic.replace(month=month - 1)
+        if graphic.month == 1:
+            graphic = graphic.replace(month=12, year=year - 1)
+        else:
+            graphic = graphic.replace(month=month - 1)
     response = graphic.strftime("%d.%m.%Y")
     return response
 
